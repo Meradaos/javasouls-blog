@@ -10,8 +10,8 @@ import { withUserConfig } from "../utils/config-overlay.ts";
  * 类型见 src/types/config.ts。
  */
 export const siteConfig: SiteConfig = withUserConfig("site", {
-	site: "https://javasouls.com/",
-	base: "/",
+	site: "https://meradaos.github.io",
+	base: "/javasouls-blog/",
 	title: "JavaSouls",
 	subtitle: "Java 之魂 — 用费曼的方式理解每一行代码",
 	// 电脑端顶栏标题与导航内容区域："left" 左对齐，"center" 居中。
