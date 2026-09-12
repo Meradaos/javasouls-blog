@@ -10,10 +10,10 @@ import { withUserConfig } from "../utils/config-overlay.ts";
  * 类型见 src/types/config.ts。
  */
 export const siteConfig: SiteConfig = withUserConfig("site", {
-	site: "https://shirone.mysqil.com/",
+	site: "https://javasouls.com/",
 	base: "/",
-	title: "Shirone",
-	subtitle: "A Material 3 anime blog",
+	title: "JavaSouls",
+	subtitle: "Java 之魂 — 用费曼的方式理解每一行代码",
 	// 电脑端顶栏标题与导航内容区域："left" 左对齐，"center" 居中。
 	topAppBar: {
 		contentAlign: "center",
@@ -27,11 +27,11 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 		reduceMotion: true, // 是否展示减少动效切换
 		texture: true, // 是否展示背景纹理选择
 	},
-	lang: "en", // Language code, e.g. 'en', 'zh_CN', 'ja', etc.
+	lang: "zh_CN", // Language code, e.g. 'en', 'zh_CN', 'ja', etc.
 	// IANA time zone for precise post and moment timestamps. It is independent of lang.
 	timeZone: "Asia/Shanghai",
 	themeColor: {
-		hue: 315, // Default hue 0-360. 站点设计默认粉紫（偏二次元）；262 紫 / 345 粉 也可选
+		hue: 210, // Default hue 0-360. 210 蓝色（科技感 + Java 品牌色）；访客可在前端切换
 		fixed: false, // Hide the theme color picker for visitors
 		// Dynamic Material 3 palette style (TonalSpot/Vibrant/Content/Expressive/Rainbow/FruitSalad/Monochrome/Neutral/Fidelity)
 		style: "tonalSpot",
@@ -57,8 +57,15 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 		// desktop 用于 >= 1024px；mobile 仅用于 < 1024px 的首页，手机非首页不显示壁纸。
 		// 数组顺序就是轮播顺序；只需要静态 Banner 时，每组保留一张图片即可。
 		src: {
-			desktop: ["assets/images/banner/desktop/1.webp"],
-			mobile: ["assets/images/banner/mobile/1.webp"],
+			desktop: [
+				"assets/images/banner/desktop/1.webp",
+				"assets/images/banner/desktop/2.jpg",
+				"assets/images/banner/desktop/3.jpg",
+			],
+			mobile: [
+				"assets/images/banner/mobile/1.webp",
+				"assets/images/banner/mobile/2.jpg",
+			],
 		},
 		// 图片裁切焦点："top"、"center" 或 "bottom"。
 		position: "center",
@@ -70,13 +77,13 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 		homeText: {
 			// 仅在首页 Banner 中显示，标题与副标题会上下居中排列。
 			enable: true,
-			title: "Shirone",
+			title: "JavaSouls",
 			subtitle: [
-				"特別なことはないけど、君がいると十分です",
-				"今でもあなたは私の光",
-				"君ってさ、知らないうちに私の毎日になってたよ",
-				"君と話すと、なんか毎日がちょっと楽しくなるんだ",
-				"今日はなんでもない日。でも、ちょっとだけいい日",
+				"Java 之魂 — 每一行代码都值得被理解",
+				"用费曼学习法，把并发编程讲透",
+				"面试不是背八股，是展示你的思考方式",
+				"从 synchronized 到 AQS，一步步来",
+				"代码是写给人看的，顺便让机器执行",
 			],
 			typewriter: {
 				// 副标题逐字显示；关闭后直接显示完整副标题。
