@@ -2,9 +2,11 @@ import { readdir, readFile, stat } from "node:fs/promises";
 import { basename, extname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { resolvedFontOptions } from "../../src/config/fontConfig.ts";
+import { siteConfig } from "../../src/config/siteConfig.ts";
 
 const projectRoot = fileURLToPath(new URL("../../", import.meta.url));
 const dist = join(projectRoot, "dist");
+const basePath = (siteConfig.base || "/").replace(/^\/?|\/$/g, "");
 const maxTotalBytes = Number(
 	process.env.FONT_MAX_TOTAL_BYTES ?? resolvedFontOptions.budget.maxTotalBytes,
 );
@@ -29,7 +31,10 @@ async function walk(directory) {
 
 function resolveAssetPath(reference) {
 	const clean = reference.split(/[?#]/, 1)[0].replace(/^["']|["']$/g, "");
-	const relative = clean.replace(/^\.?\/?_astro\//, "_astro/");
+	const stripped = basePath
+		? clean.replace(new RegExp(`^/?(?:\\./)?${basePath.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}/`), "")
+		: clean.replace(/^\.?\//, "");
+	const relative = stripped.replace(/^_astro\//, "_astro/");
 	return join(dist, ...relative.split("/"));
 }
 
